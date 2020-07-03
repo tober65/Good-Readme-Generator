@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+const fs = require("fs");
 
 inquirer
   .prompt([
@@ -40,6 +41,11 @@ inquirer
       },
       {
         type: "input",
+        message: "Please enter testing instructions for your project:",
+        name: "test",
+      },
+      {
+        type: "input",
         message: "Please enter your github username:",
         name: "github",
       },
@@ -49,7 +55,50 @@ inquirer
         name: "email",
       },
 ]).then(function (answers) {
-        // Inquirer passes an object which contains the users answers. Each key of
-        // of the object corresponds to the name property of the questions.
-        console.log("Your name:", answers.name);
+        const readme = 
+`# ${answers.name}
+
+## Description 
+${answers.description}
+
+## Table of Contents 
+[Installation](#installation)
+        
+[Usage](#usage)
+        
+[License](#license)
+        
+[Contributing](#contributing)
+        
+[Tests](#tests)
+        
+[Questions](#questions)
+## Installation
+${answers.install}
+
+## Usage
+${answers.usage}
+
+## License
+${answers.license}
+
+## Contributing
+${answers.contribute}
+
+## Tests
+${answers.test}
+
+## Questions
+GitHub: ${answers.github}
+Email: ${answers.email}
+`;
+
+        fs.writeFile("README_GENERATED.md", readme, function(error) {
+            if (error) {
+              console.log(error)
+              return console.log(error);
+            }
+          
+            console.log("Success!");
+          });
       });
