@@ -28,10 +28,10 @@ inquirer
         message: "Which license does your project fall under?",
         name: "license",
         choices: [
-          "triangle",
-          "circle",
-          "square",
-          "hexagon"
+          "MIT",
+          "GNU GPLv3",
+          "Apache",
+          "Mozilla"
         ],
       },
       {
@@ -55,10 +55,38 @@ inquirer
         name: "email",
       },
 ]).then(function (answers) {
-        const readme = 
+    let licenseUrl;
+    let licenseString;
+
+    switch (answers.license) {
+        case "MIT":
+            licenseUrl = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+            licenseString = "Licensed under the MIT license."
+            break;
+        case "GNU GPLv3":
+            licenseUrl = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+            licenseString = "Licensed under the GNU GPLv3 license."
+            break;
+        case "Apache":
+            licenseUrl = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+            licenseString = "Licensed under the Apache license."
+            break;
+        case "Mozilla":
+            licenseUrl = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
+            licenseString = "Licensed under the Mozilla license."
+            break;
+        default:
+            licenseUrl = "";
+            break;
+        }       
+
+    
+    const readme = 
 `# ${answers.name}
 
 ## Description 
+${licenseUrl}
+
 ${answers.description}
 
 ## Table of Contents 
@@ -80,7 +108,7 @@ ${answers.install}
 ${answers.usage}
 
 ## License
-${answers.license}
+${licenseString}
 
 ## Contributing
 ${answers.contribute}
@@ -89,7 +117,8 @@ ${answers.contribute}
 ${answers.test}
 
 ## Questions
-GitHub: ${answers.github}
+GitHub: https://github.com/${answers.github}
+
 Email: ${answers.email}
 `;
 
