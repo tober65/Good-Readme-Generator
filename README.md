@@ -3,9 +3,9 @@
 ## Description 
 This is homework 9, a program to generate good readme.md files for projects.
 
-<img src="./assets/images/command_line.png">
-<img src="./assets/images/readme_pt1.png">
-<img src="./assets/images/readme_pt2.png">
+<img src="./assets/command_line.png">
+<img src="./assets/readme_pt1.png">
+<img src="./assets/readme_pt2.png">
 
 ## Table of Contents 
 [Installation](#installation)
