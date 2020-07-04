@@ -1,9 +1,9 @@
-# a
+# Good Readme Generator
 
 ## Description 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-b
+A readme generator
 
 ## Table of Contents 
 [Installation](#installation)
@@ -18,20 +18,21 @@ b
         
 [Questions](#questions)
 ## Installation
-c
+Download, then npm install
 
 ## Usage
-d
+node index.js
 
 ## License
-Licensed under the Apache license.
+Licensed under the GNU GPLv3 license.
 
 ## Contributing
-e
+Feel free to contribute
 
 ## Tests
-f
+No tests at the moment
 
 ## Questions
-GitHub: g
-Email: h
+GitHub: https://github.com/tober65
+
+Email: timothy.ober@gmail.com
